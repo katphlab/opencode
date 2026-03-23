@@ -1,6 +1,20 @@
 # OpenCode Enhanced Configuration
 
+[![OpenCode](https://img.shields.io/badge/OpenCode-Configuration-blue)](https://opencode.ai)
+[![Superpowers](https://img.shields.io/badge/Plugin-Superpowers-green)](https://github.com/obra/superpowers)
+
 > A comprehensive configuration for OpenCode with custom skills, agents, commands, and superpowers plugin integration.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation & Setup](#installation--setup)
+- [Skills Catalog](#skills-catalog)
+- [Agents Reference](#agents-reference)
+- [Commands Guide](#commands-guide)
+- [Configuration Details](#configuration-details)
+- [Usage Examples](#usage-examples)
+- [Troubleshooting & FAQ](#troubleshooting--faq)
 
 This repository provides an enhanced OpenCode configuration with specialized skills for development workflows, custom agents for different task complexities, and commands for common operations. It integrates the "superpowers" plugin for advanced capabilities.
 
