@@ -144,3 +144,70 @@ debug "theme not applying correctly"
 # Create custom components if needed
 create-skill theme-manager
 ```
+
+## Configuration Details
+
+### opencode.json Structure
+
+The main configuration file (`opencode.json`) includes:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "server": {
+    "cors": ["{env:OPENCODE_DOMAIN}"]
+  },
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
+  "permission": {
+    "*": "deny",
+    "read": "allow",
+    "grep": "allow",
+    "glob": "allow",
+    "todowrite": "allow",
+    "todoread": "allow",
+    "skill": "allow",
+    "logbook_*": "allow"
+  },
+  "agent": {
+    // Agent definitions with model assignments
+  },
+  "mcp": {
+    "stitch": {
+      "type": "remote",
+      "url": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "{env:STITCH_API_KEY}"
+      },
+      "timeout": 1200000,
+      "enabled": false
+    },
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
+      "enabled": false
+    }
+  }
+}
+```
+
+### Permission System
+
+The configuration uses a deny-by-default permission model:
+- **Base permissions**: read, grep, glob, todowrite, todoread, skill, logbook operations
+- **Agent-specific permissions**: Additional tools granted per agent type
+- **Security**: Explicit allow listing prevents unauthorized tool access
+
+### MCP Server Configuration
+
+- **Stitch**: Design automation server (requires API key)
+- **Notion**: Notion integration (disabled by default)
+
+Both MCP servers are configurable and can be enabled as needed.
+
+### Plugin System
+
+The **superpowers** plugin provides:
+- Enhanced skill system with automatic activation
+- Structured workflows (brainstorming, TDD, debugging)
+- Subagent dispatch patterns
+- Plan and spec review systems
