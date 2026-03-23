@@ -112,3 +112,35 @@ Agents are dispatched based on:
 3. **Available context** and requirements
 
 The system automatically selects the appropriate agent based on the task characteristics.
+
+## Commands Guide
+
+Custom commands provide streamlined workflows for common operations:
+
+| Command | Purpose | Syntax | Examples |
+|---------|---------|--------|----------|
+| **create-agent** | Create new agent definitions | `create-agent <agent-name>` | `create-agent data-analyst` |
+| **create-skill** | Create new skill definitions | `create-skill <skill-name>` | `create-skill data-visualization` |
+| **create-command** | Create new command definitions | `create-command <command-name>` | `create-command analyze-data` |
+| **debug** | Debug code and systems | `debug <issue-description>` | `debug "API returning 500 error"` |
+| **design-opencode** | Design OpenCode configurations | `design-opencode <requirement>` | `design-opencode "add logging system"` |
+| **feature** | Manage feature development | `feature <feature-name>` | `feature "add user authentication"` |
+| **medium-lead** | Medium complexity task management | `medium-lead <task>` | `medium-lead "refactor database layer"` |
+| **quick** | Quick task execution | `quick <task>` | `quick "add comment to function"` |
+
+### Command Usage
+
+Commands can be invoked directly in OpenCode sessions. They trigger the appropriate agents and skills based on the command type and complexity.
+
+### Example Workflow
+
+```bash
+# Start with a feature
+feature "add dark mode toggle"
+
+# Debug issues that arise
+debug "theme not applying correctly"
+
+# Create custom components if needed
+create-skill theme-manager
+```
