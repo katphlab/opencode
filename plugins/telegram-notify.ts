@@ -1,5 +1,12 @@
+import fs from 'fs';
+
+const ERROR_FILE = '/tmp/opencode-telegram-notify-error.log';
+
 const log = (client: any, msg: string, data?: any, level: 'debug' | 'error' = 'debug') => {
   const line = `[${new Date().toISOString()}] ${msg} ${data ? JSON.stringify(data, null, 2) : ''}\n`;
+  if (level === 'error') {
+    fs.appendFileSync(ERROR_FILE, line);
+  }
   client.app.log({
     body: {
       service: 'telegram-notify',
@@ -9,10 +16,11 @@ const log = (client: any, msg: string, data?: any, level: 'debug' | 'error' = 'd
   });
 };
 
-export default async function TelegramNotifyPlugin({ project, client, directory }: any) {
+export default async function TelegramNotifyPlugin({ project, client, directory, worktree }: any) {
   log(client, 'Plugin loaded', {
     project,
     directory,
+    worktree,
     hasClient: !!client,
   });
 
@@ -77,6 +85,7 @@ export default async function TelegramNotifyPlugin({ project, client, directory 
           ``,
           `📁 <b>Project:</b> <code>${projectName}</code>`,
           `🗂 <b>Session:</b> <code>${sessionName}</code>`,
+          `🗂 <b>Worktree:</b> <code>${worktree}</code>`,
           ``,
           `👤 <b>Last User Message</b>`,
           `<blockquote>${extractText(lastUser)}</blockquote>`,
