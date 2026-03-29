@@ -26,18 +26,8 @@
         "write": "allow"
       }
     },
-    "creation-orchestrator": {
-      "model": "openai/gpt-5.4",
-      "options": {},
-      "permission": {}
-    },
-    "feature-lead": {
-      "model": "openai/gpt-5.4",
-      "options": {},
-      "permission": {}
-    },
-    "debug-lead": {
-      "model": "openai/gpt-5.4",
+    "orchestrator": {
+      "model": "openai/gpt-5.3-codex",
       "options": {},
       "permission": {}
     },
@@ -53,11 +43,6 @@
     },
     "discovery": {
       "model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p5-turbo",
-      "options": {},
-      "permission": {}
-    },
-    "quick-lead": {
-      "model": "minimax/MiniMax-M2.7",
       "options": {},
       "permission": {}
     },
