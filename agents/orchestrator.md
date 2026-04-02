@@ -4,6 +4,8 @@ mode: primary
 permission:
   question: allow
   markdown_*: allow
+  webfetch: allow
+  websearch: allow
   task:
     '*': allow
 ---
